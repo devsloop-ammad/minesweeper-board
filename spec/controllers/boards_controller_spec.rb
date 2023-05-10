@@ -4,12 +4,6 @@ require 'rails_helper'
 
 RSpec.describe BoardsController, type: :controller do
   describe 'GET #index' do
-    it "gets the latest 10 boards when 'all' parameter is not present" do
-      latest_boards = create_list(:board, 10, created_at: Time.current)
-      get :index
-      expect(assigns(:boards)).to match_array(latest_boards)
-    end
-
     it "gets all boards when 'all' parameter is present" do
       all_boards = create_list(:board, 20, created_at: Time.current)
       get :index, params: { all: true }

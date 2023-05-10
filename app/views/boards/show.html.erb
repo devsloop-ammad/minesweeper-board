@@ -25,7 +25,7 @@
   <% @grid.each do |row| %>
     <tr class="p-2">
       <% row.each do |col| %>
-        <td class="p-2"><%= col == 1 ? '💣' : col %></td>
+        <td class="p-2 <%= col == 1 ? 'mine' : '' %>"><%= col == 1 ? '💣' : col %></td>
       <% end %>
     </tr>
   <% end %>

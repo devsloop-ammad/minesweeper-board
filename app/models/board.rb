@@ -20,6 +20,7 @@ class Board < ApplicationRecord
   private
 
   def cell_to_mine_ratio
+    return if height.blank? || width.blank? || mines_count.blank?
     return if height * width >= mines_count
 
     errors.add(:mines_count, 'must be less than the total number of cells')

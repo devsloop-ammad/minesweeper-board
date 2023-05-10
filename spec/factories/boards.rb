@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :board do
-    name { 'Test' }
-    email { 'test@email.com' }
+    name { FFaker::Name.name }
+    email { FFaker::Internet.email }
     width { 3 }
     height { 3 }
     mines_count { 4 }
