@@ -1,0 +1,32 @@
+<style type="text/css">
+  .p-2{
+    padding: 10px;
+  }
+
+  td {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+  }
+</style>
+
+<div class="row justify-content-between">
+  <div class="col-11">
+    <h4>Email: <%= @board.email %></h4>
+    <h4>Board Name: <%= @board.name %></h4>
+  </div>
+
+  <div class="col-1 text-right">
+    <%= link_to 'Back', root_path, class: 'btn btn-primary', style: 'float: right;' %>
+  </div>
+</div>
+
+<table border="1" class="mt-4">
+  <% @grid.each do |row| %>
+    <tr class="p-2">
+      <% row.each do |col| %>
+        <td class="p-2"><%= col == 1 ? '💣' : col %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

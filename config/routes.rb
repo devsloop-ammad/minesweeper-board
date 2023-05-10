@@ -1,5 +1,7 @@
-Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+# frozen_string_literal: true
 
-  resources :board, only: %i[index new create show]
+Rails.application.routes.draw do
+  root to: 'boards#new'
+
+  resources :boards, only: %i[index new create show]
 end

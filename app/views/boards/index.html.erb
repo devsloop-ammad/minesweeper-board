@@ -1,0 +1,11 @@
+<div class="row justify-content-between">
+  <div class="col-2">
+    <h1>Boards</h1>
+  </div>
+
+  <div class="col-1 text-right">
+    <%= link_to 'Back', root_path, class: 'btn btn-primary', style: 'float: right;' %>
+  </div>
+</div>
+
+<%= render 'list', boards: @boards %>
