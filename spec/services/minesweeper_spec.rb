@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Minesweeper do
   describe '#render' do
-    let(:board) { double('board', width: 3, height: 3, result: [0, 4, 8]) }
+    let(:board) { double('board', width: 3, height: 3, mine_positions: [0, 4, 8]) }
     let(:minesweeper) { Minesweeper.new(board) }
 
     it 'renders the board with the correct dimensions' do

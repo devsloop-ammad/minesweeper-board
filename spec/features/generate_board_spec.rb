@@ -66,6 +66,7 @@ describe 'Generate board page', type: :feature do
 
     it 'shows list of 10 recently generated boards' do
       visit '/'
+
       expect(page).to have_selector('h2', text: 'Recently Generated Boards')
       expect(page).to have_selector('table')
 

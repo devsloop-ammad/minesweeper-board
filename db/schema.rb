@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 20_230_508_105_016) do
   enable_extension 'plpgsql'
 
   create_table 'boards', force: :cascade do |t|
-    t.string 'name'
-    t.string 'email'
-    t.integer 'width'
-    t.integer 'height'
-    t.integer 'mines_count'
-    t.text 'result'
+    t.string 'name', null: false
+    t.string 'email', null: false
+    t.integer 'width', default: 0, null: false
+    t.integer 'height', default: 0, null: false
+    t.integer 'mines_count', default: 0, null: false
+    t.text 'mine_positions', default: [], array: true
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
   end

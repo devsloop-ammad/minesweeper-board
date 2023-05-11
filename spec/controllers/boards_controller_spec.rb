@@ -4,10 +4,11 @@ require 'rails_helper'
 
 RSpec.describe BoardsController, type: :controller do
   describe 'GET #index' do
-    it "gets all boards when 'all' parameter is present" do
-      all_boards = create_list(:board, 20, created_at: Time.current)
-      get :index, params: { all: true }
-      expect(assigns(:boards)).to match_array(all_boards)
+    it 'gets all boards' do
+      boards = create_list(:board, 20, created_at: Time.current)
+      get :index
+
+      expect(assigns(:boards)).to match_array(boards)
     end
   end
 
@@ -23,6 +24,7 @@ RSpec.describe BoardsController, type: :controller do
 
       it 'assigns a newly created board as @board' do
         post :create, params: { board: valid_attributes }
+
         expect(assigns(:board)).to be_a(Board)
         expect(assigns(:board)).to be_persisted
       end
@@ -38,11 +40,13 @@ RSpec.describe BoardsController, type: :controller do
 
       it 'assigns a newly created but unsaved board as @board' do
         post :create, params: { board: invalid_attributes }
+
         expect(assigns(:board)).to be_a_new(Board)
       end
 
       it "re-renders the 'new' template" do
         post :create, params: { board: invalid_attributes }
+
         expect(response).to render_template('new')
       end
     end
@@ -52,6 +56,7 @@ RSpec.describe BoardsController, type: :controller do
     it 'gets the requested board' do
       board = create(:board)
       get :show, params: { id: board.id }
+
       expect(assigns(:board)).to eq(board)
     end
   end

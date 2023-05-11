@@ -14,7 +14,6 @@ class BoardsController < ApplicationController
     @board = Board.new(board_params)
 
     if @board.save
-      @board.set_mines
       redirect_to board_path(@board.id)
     else
       render :new
